@@ -5,9 +5,6 @@ NodeJS P7m decoder library
 ## Getting Started
 
 You can see sample example of use in "example" folder
-```
-Sample exam
-```
 
 ### Prerequisites
 
