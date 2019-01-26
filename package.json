@@ -1,0 +1,8 @@
+{
+  "name": "p7m-decoder",
+  "version": "0.1.0",
+  "description": "NodeJS p7m decoder",
+  "main": "index.js",
+  "author": "Andrea Di Blasi",
+  "license": "ISC"
+}
