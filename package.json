@@ -1,5 +1,5 @@
 {
-  "name": "p7m-decoder",
+  "name": "p7m-js-decoder",
   "version": "0.1.0",
   "description": "NodeJS p7m decoder",
   "main": "index.js",
