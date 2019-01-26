@@ -1,6 +1,6 @@
 {
   "name": "p7m-js-decoder",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "NodeJS p7m decoder",
   "main": "index.js",
   "author": "Andrea Di Blasi",
