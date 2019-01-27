@@ -1,6 +1,8 @@
 const exec = require('child_process').exec;
 const fs = require('fs');
 
+const is_base64 = (string) => /^([A-Za-z0-9+/]{4})*([A-Za-z0-9+/]{3}=|[A-Za-z0-9+/]{2}==)?$/.test(string)
+
 const remove_file = (key) => {
   return new Promise((resolve, reject) => {
     fs.unlink(key, (err) => {
@@ -51,18 +53,21 @@ const exec_command = (command) => {
 }
 
 const delete_file_created = (file_read) => {
-  //CONTENT READ, NOW DELETE FILE  
+  //CONTENT READ NOW DELETE
+  console.log("DELETE FIRST FILE CONTENT => ", file_read.key)
+  
   return remove_file(file_read.key)
     .then(data => {
       return Promise.resolve({
-        ...data,
+        ...data, //key
         body: file_read.file_content
       })
     })
 }
 
 const delete_p7m_file_created = (file_read) => {
-  //CONTENT READ, NOW DELETE P7M FILE
+  //CONTENT READ, NOW DELETE P7M
+  console.log("DELETE SECOND FILE CONTENT => ", file_read.key.concat('.p7m',''))
   return remove_file(file_read.key.concat('.p7m'))
     .then(data => {
       //RETURN KEY WITHOUT PATH
@@ -76,14 +81,16 @@ const delete_p7m_file_created = (file_read) => {
 }
 
 const decode_p7m = (key, body) => {
-  //SAVE FILE IN TMP FOLDER
-  let path = `/tmp/${key}`
-  
+  let path = `/tmp/${key}`;
+  //CHECK IF BODY IS BASE64 ENCODED AND DECODE IT
+  body = (is_base64(body.toString())) ? Buffer.from(body.toString(), 'base64') : body
   return new Promise((resolve, reject) => {
     write_file(path, body)
       .then(create_unencrypted_file_from_p7m)
       .then(() => {
-        //EXEC DONE, NOW READ FILE CLEARED
+        //EXEC DONE
+        console.log("READ FILE CONTENT => ", path.replace('.p7m',''))
+
         return read_file(path.replace('.p7m',''))
       })
       .then(delete_file_created)
