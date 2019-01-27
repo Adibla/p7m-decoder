@@ -4,5 +4,13 @@
   "description": "NodeJS p7m decoder",
   "main": "index.js",
   "author": "Andrea Di Blasi",
-  "license": "ISC"
+  "license": "ISC",
+  "keywords": [
+    "javascript",
+    "node",
+    "nodejs",
+    "p7m",
+    "pec",
+    "decoder"
+  ]
 }
