@@ -1,6 +1,6 @@
 {
   "name": "p7m-js-decoder",
-  "version": "0.1.3",
+  "version": "0.2.0",
   "description": "NodeJS p7m decoder",
   "main": "dist/index.js",
   "types": "types/index.d.ts",
