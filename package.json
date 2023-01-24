@@ -2,7 +2,11 @@
   "name": "p7m-js-decoder",
   "version": "0.1.3",
   "description": "NodeJS p7m decoder",
-  "main": "src/index.ts",
+  "main": "dist/index.js",
+  "types": "types/index.d.ts",
+  "files": [
+    "/dist"
+  ],
   "author": "Andrea Di Blasi",
   "license": "ISC",
   "keywords": [
@@ -15,7 +19,7 @@
   ],
   "scripts": {
     "start": "tsc && node ./dist",
-    "exec": "ts-node ./example/sample.ts"
+    "example": "nod ./dist"
   },
   "dependencies": {
     "@types/node": "^18.11.18",
